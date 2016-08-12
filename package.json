@@ -1,0 +1,36 @@
+{
+  "name": "crm-sln",
+  "version": "0.1.0",
+  "description": "Manage Dynamics CRM solutions using JSON files.",
+  "main": "lib/index.js",
+  "engine": "node >= 4.4.x",
+  "dependencies": {
+    "glob": "^7.0.5",
+    "jszip": "^3.1.1",
+    "redux": "^3.5.2",
+    "semver": "^5.3.0"
+  },
+  "devDependencies": {
+    "deep-freeze": "0.0.1",
+    "expect.js": "^0.3.1",
+    "mocha": "^3.0.2"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha --use_strict"
+  },
+  "bin": "lib/cli.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisbwall/crm-sln.git"
+  },
+  "keywords": [
+    "Dynamics",
+    "CRM"
+  ],
+  "author": "Chris Wall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisbwall/crm-sln/issues"
+  },
+  "homepage": "https://github.com/chrisbwall/crm-sln#readme"
+}
