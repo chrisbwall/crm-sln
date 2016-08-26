@@ -1,6 +1,6 @@
 "use strict";
 
-const expect = require("expect.js");
+const expect = require("chai").expect;
 const ProgressPromise = require("../lib/progress-promise");
 
 describe("ProgressPromise", () => {
@@ -35,14 +35,14 @@ describe("ProgressPromise", () => {
       p.progress((pct, msg) => {
         callcount += 1;
         try {
-          expect(pct).to.be(100);
-          expect(msg).to.be("Done");
+          expect(pct).to.equal(100);
+          expect(msg).to.equal("Done");
         }
         catch(e) { done(e); }
       }, done);
       p.then(() => {
         try {
-          expect(callcount).to.be(1);
+          expect(callcount).to.equal(1);
           done();
         } 
         catch (e) {
@@ -70,19 +70,19 @@ describe("ProgressPromise", () => {
         try {
           expect(pct).to.be.above(currentPct);
           if (pct === 1) {
-            expect(currentPct).to.be(0);
-            expect(msg).to.be("Starting");
+            expect(currentPct).to.equal(0);
+            expect(msg).to.equal("Starting");
           }
           else if (pct === 50) {
-            expect(currentPct).to.be(1);
-            expect(msg).to.be("Waiting");
+            expect(currentPct).to.equal(1);
+            expect(msg).to.equal("Waiting");
           }
           else if (pct === 100) {
-            expect(currentPct).to.be(50);
-            expect(msg).to.be("Done");
+            expect(currentPct).to.equal(50);
+            expect(msg).to.equal("Done");
           }
           else {
-            expect().fail("Was not one of the expected progress reports.");
+            throw new Error("Was not one of the expected progress reports.");
           }
         }
         catch(e) {
@@ -92,7 +92,7 @@ describe("ProgressPromise", () => {
       }, done);
       p.then(() => {
         try {
-          expect(callCount).to.be(3);
+          expect(callCount).to.equal(3);
           done();
         }
         catch(e) {

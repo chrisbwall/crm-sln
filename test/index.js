@@ -1,22 +1,23 @@
 "use strict";
 
-const expect = require("expect.js");
+const expect = require("chai").expect;
 const crmsln = require("../lib/index");
 
 describe("CRM-SLN", () => {
 
-  var solution = null;
-  before("create solution data for assembleFrom()", () => {
-
-  });
-
   describe("#assembleFrom()", () => {
-    it("should return valid JSZip object", () => {
-      let zip = crmsln.assembleFrom(solution);
+
+    var solution = null;
+    before("create solution data for assembleFrom()", () => {
+
+    });
+
+    it("should return valid Solution Files object", () => {
+      let sol = crmsln.assembleFrom(solution);
     });
 
     it("should throw error if argument is null", () => {
-      expect(crmsln.assembleFrom).withArgs(null).to.throwException();
+      expect(() => crmsln.assembleFrom(null)).to.throw();
     });
   });
 
@@ -26,13 +27,18 @@ describe("CRM-SLN", () => {
 
   describe("#disassemble()", () => {
 
+    var files = null;
+    before("create files data for disassemble()", () => {
+
+    });
+
     it("should throw error is argument is null", () => {
-      expect(crmsln.disassemble).withArgs(null).to.throwException();
+      expect(() => crmsln.disassemble(null)).to.throw();
     });
 
     it("should return valid Solution object", () => {
-      let o = crmsln.disassmble();
-      expect(o).to.be.ok();
+      let o = crmsln.disassemble(files);
+      expect(o).to.be.ok;
       expect(o).to.be.an("object");
     });
 
